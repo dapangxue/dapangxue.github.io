@@ -146,15 +146,17 @@
 <h1 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h1><p>RPC采用了请求-响应机制，由客户端向已知的远程服务器发送请求，并附带参数，使得远程的服务器执行既定的过程，然后远程的服务端在计算完毕后，响应客户端的请求，返回计算结果给客户端。当服务端在执行计算的时候，客户端处于阻塞状态的，它在等待服务端的计算结果，除非客户端发送了异步的请求给服务器，比如采用了<code>XMLHttpRequest</code>。</p>
 <p>对于远程过程调用来讲，一个最重要的不同就是因为不可预测的网络问题导致调用失败。导致调用失败的因素有很多，可能是因为网络问题，或者是服务提供者服务挂掉等。</p>
 <h2 id="调用过程"><a href="#调用过程" class="headerlink" title="调用过程"></a>调用过程</h2><ol>
-<li>客户端调用客户端存根，这次调用为本地调用，同时传入参数</li>
-<li>客户端存根将参数打包到消息中，进行系统调用发送消息。打包参数称为编组</li>
-<li>客户端的本地计算机操作系统将消息发送到服务端的计算机。</li>
-<li>服务器在接收到消息后，将数据包传入服务器存根</li>
-<li>服务器存根解压缩消息中的参数，解包称为解组。</li>
-<li>服务器存根调用服务器上的过程，将计算结果返回给客户端。</li>
+<li>客户端调用<code>client stub</code>，这次调用为本地调用，同时传入参数</li>
+<li><code>client stub</code>将参数打包到消息中，进行系统调用发送消息。打包参数称为序列化/编组</li>
+<li>客户端的本地计算机操作系统通过Socket将消息发送到服务端的计算机。</li>
+<li>服务端Socket在接收到消息后，将数据包传入<code>server stub</code>。</li>
+<li><code>server stub</code>解压缩消息中的参数，解包称为反序列化/解组。</li>
+<li><code>server stub</code>调用服务器上的过程，将计算结果返回给客户端。</li>
 </ol>
+<p><img src="https://www.cs.rutgers.edu/~pxk/417/notes/images/rpc-flow.png" alt="RPC调用"></p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://searchapparchitecture.techtarget.com/definition/Remote-Procedure-Call-RPC" target="_blank" rel="noopener">Remote Procedure Call (RPC)</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Remote_procedure_call" target="_blank" rel="noopener">维基百科</a></p>
+<p><a href="https://www.zhihu.com/question/25536695/answer/36197244" target="_blank" rel="noopener">谁能用通俗的语言解释一下什么是 RPC 框架？</a></p>
 
         
             <div class="donate-container">
