@@ -11,7 +11,7 @@
 
     <title>
         
-        武雪的博客 | WuXue&#39;s Blog
+        BFS和DFS - 武雪的博客 | WuXue&#39;s Blog
         
     </title>
 
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BFS和DFS"><span class="toc-text">BFS和DFS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#深度优先遍历"><span class="toc-text">深度优先遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#广度优先遍历"><span class="toc-text">广度优先遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -114,65 +118,65 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        BFS和DFS
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-09-23 17:08:25</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#算法" title="算法">算法</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="BFS和DFS"><a href="#BFS和DFS" class="headerlink" title="BFS和DFS"></a>BFS和DFS</h1><p>深度优先搜索和广度优先搜索属于一种图搜索算法，它避免了图的搜索陷入了死循环。</p>
+<h2 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h2><p>深度优先遍历主要采用了<code>递归</code>算法，它的主要思想是任意确定一个顶点A，假设顶点A的邻接顶点有B、C、D，从A的邻接顶点中选取一个顶点作为遍历点，假设选择了B，那么再从B的邻接顶点中选择一个顶点遍历，依次递归。同时需要构造一个数据结构维护点是否被遍历过的状态。假设有一个点的所有邻接顶点全部遍历完成，那么退回到这个顶点的上一个顶点继续选择顶点遍历。</p>
+<p>其实深度优先搜索采用递归的算法就是利用了栈的特性。如果不使用递归，采用的栈的话，搜索过程如下：</p>
+<ol>
+<li>将根节点加入栈中</li>
+<li>弹出节点，将该节点的所有邻接节点加入栈中</li>
+<li>不断重复步骤2，即弹出节点的下一级节点加入栈中</li>
+<li>如果栈为空，说明搜索已完成</li>
+</ol>
+<h2 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h2><p>图的广度优先遍历在视觉上其实是一种发散型的遍历，也就是从一个顶点散开到该顶点的所有邻接点。这就需要使用一个<code>队列</code>维护散开顶点。</p>
+<p>具体的步骤如下：</p>
+<ol>
+<li>根节点放入队列</li>
+<li>从队列中弹出节点，将该节点的所有邻接节点（下一级节点）全部放入队列</li>
+<li>不断重复步骤2，即将弹出的节点的邻接节点全部加入队列中</li>
+<li>如果队列为空，说明已经搜索完成</li>
+</ol>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="[https://baike.baidu.com/item/%E5%AE%BD%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/5224802](https://baike.baidu.com/item/宽度优先搜索/5224802)">宽度优先搜索</a></p>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-    <ul>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>09-23</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/09/23/BFS和DFS/">
-                        <span>
-                            BFS和DFS
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>09-19</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/09/19/什么是RPC/">
-                        <span>
-                            什么是RPC
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>09-18</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/2019/09/18/美团面试有感/">
-                        <span>
-                            美团面试有感
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-
-    </ul>
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.png">
+        <p> 感谢鼓励 </p>
+    </div>
 </div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
+        <div id="lv-container">
+        </div>
+
+    </div>
 </div>
 
     </div>
@@ -237,12 +241,31 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
 
 
 
